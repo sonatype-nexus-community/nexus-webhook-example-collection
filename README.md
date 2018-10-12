@@ -19,9 +19,9 @@
 
 [![Join the chat at https://gitter.im/sonatype/nexus-developers](https://badges.gitter.im/sonatype/nexus-developers.svg)](https://gitter.im/sonatype/nexus-developers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-# Table Of Contents
+# What is this?
 
-To come
+A go library for colecting Webhooks from a Sonatype Nexus IQ server. It is useful to be able to collect the outcoming Webhooks and then extend them to forward them to other services like ELK, Splunk or Slack (examples to come!)
 
 ## The Fine Print
 
