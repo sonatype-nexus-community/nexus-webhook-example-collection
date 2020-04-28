@@ -1,4 +1,4 @@
-package nexus-webhook-example-collection 
+package nexuswebhook
 
 import (
 	"crypto/hmac"
@@ -14,13 +14,13 @@ import (
 
 // parse errors
 var (
-	ErrEventNotSpecifiedToParse  = errors.New("no Event specified to parse")
-	ErrInvalidHTTPMethod         = errors.New("invalid HTTP Method")
-	ErrEventNotFound             = errors.New("event not defined to be parsed")
-	ErrParsingPayload            = errors.New("error parsing payload")
-	ErrMissingWebhookIdHeader    = errors.New("missing X-Nexus-Webhook-Id Header")
-	ErrMissingSignatureHeader    = errors.New("missing X-Nexus-Webhook-Signature Header")
-	ErrHMACVerificationFailed    = errors.New("HMAC verification failed")
+	ErrEventNotSpecifiedToParse = errors.New("no Event specified to parse")
+	ErrInvalidHTTPMethod        = errors.New("invalid HTTP Method")
+	ErrEventNotFound            = errors.New("event not defined to be parsed")
+	ErrParsingPayload           = errors.New("error parsing payload")
+	ErrMissingWebhookIdHeader   = errors.New("missing X-Nexus-Webhook-Id Header")
+	ErrMissingSignatureHeader   = errors.New("missing X-Nexus-Webhook-Signature Header")
+	ErrHMACVerificationFailed   = errors.New("HMAC verification failed")
 )
 
 // Event defines hook event type
@@ -28,10 +28,10 @@ type Event string
 
 // Hook types
 const (
-	PolicyManagement                            Event = "iq:policyManagement"
-	ApplicationEvaluation                       Event = "iq:applicationEvaluation"
-	LicenseOverrideManagement                   Event = "iq:licenseOverrideManagement"
-	SecurityVulnerabilityOverrideManagement     Event = "iq:securityVulnerabilityOverrideManagement"
+	PolicyManagement                        Event = "iq:policyManagement"
+	ApplicationEvaluation                   Event = "iq:applicationEvaluation"
+	LicenseOverrideManagement               Event = "iq:licenseOverrideManagement"
+	SecurityVulnerabilityOverrideManagement Event = "iq:securityVulnerabilityOverrideManagement"
 )
 
 // Option is a configuration option for the webhook
@@ -140,4 +140,3 @@ func (hook Webhook) Parse(r *http.Request, events ...Event) (interface{}, error)
 		return nil, fmt.Errorf("unknown event %s", SonatypeEvent)
 	}
 }
-
